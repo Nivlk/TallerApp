@@ -1,0 +1,42 @@
+.full-height-container {
+    height: 100vh;
+  }
+  
+  .main-content {
+    padding: 16px; 
+    width: calc(100% - 250px); 
+    transition: width 0.3s;
+  }
+  .img-tag{
+    display: flex;
+width: 123.087px;
+height: 46px;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
+  }
+  .color-full{
+    background-color: #112B41!important;
+  }
+  .clicked {
+    background-color: white;
+  }
+  .mat-mdc-list-base {
+    --mdc-list-list-item-label-text-color:  white!important;
+    --mdc-list-list-item-supporting-text-color:  white!important;
+    --mdc-list-list-item-leading-icon-color: white!important;
+    --mdc-list-list-item-trailing-supporting-text-color:  white!important;
+    --mdc-list-list-item-trailing-icon-color: white!important;
+    --mdc-list-list-item-selected-trailing-icon-color: white!important;
+    --mdc-list-list-item-disabled-label-text-color:  white!important;
+    --mdc-list-list-item-disabled-leading-icon-color:  white!important;
+    --mdc-list-list-item-disabled-trailing-icon-color: white!important;
+    --mdc-list-list-item-hover-label-text-color:  white!important;
+    --mdc-list-list-item-hover-leading-icon-color:  white!important;
+    --mdc-list-list-item-hover-trailing-icon-color: white!important;
+    --mdc-list-list-item-focus-label-text-color: white!important;
+    --mdc-list-list-item-hover-state-layer-color:  rgb(255, 255, 255)!important;
+    --mdc-list-list-item-hover-state-layer-opacity: 0.04;
+    --mdc-list-list-item-focus-state-layer-color: white!important;
+    --mdc-list-list-item-focus-state-layer-opacity: 0.12;
+}
