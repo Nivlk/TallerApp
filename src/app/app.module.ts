@@ -10,13 +10,18 @@ import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientsComponent } from './components/clients/clients/clients.component';
+import { SearchComponent } from './components/search/search.component';
+import { AddClientsComponent } from './components/add-clients/add-clients.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    ClientsComponent
+    ClientsComponent,
+    SearchComponent,
+    AddClientsComponent,
   ],
   imports: [
     BrowserModule,
