@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AgGridModule } from 'ag-grid-angular';
+
 import { ClientsComponent } from './components/clients/clients/clients.component';
 import { SearchComponent } from './components/search/search.component';
 import { AddClientsComponent } from './components/add-clients/add-clients.component';
@@ -30,6 +32,7 @@ import { AddClientsComponent } from './components/add-clients/add-clients.compon
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AgGridModule,
 
   ],
   providers: [],
