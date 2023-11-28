@@ -1,10 +1,35 @@
-@import 'ag-grid-community/styles/ag-grid.css';
-@import 'ag-grid-community/styles/ag-theme-alpine.css';
+.ag-theme-alpine {
+  display: block;
+  width: 100%;
+  height: 100%;
+  --ag-header-height: 30px;
+  --ag-header-foreground-color: white;
+  --ag-header-background-color: #008abc;
+  --ag-header-cell-hover-background-color: rgb(80, 40, 140);
+  --ag-header-cell-moving-background-color: rgb(80, 40, 140);
+}
+.searchButton{
+  background-color: #EA6928!important;
+  color: white!important;
+}
+:host {
+  display: flex;
 
-html, body {
-    height: 100%;
-    width: 100%;
-    padding: 5px;
-    box-sizing: border-box;
-    -webkit-overflow-scrolling: touch;
+  height: 100vh;
+}
+.title {
+  color: #112b41;
+  font-family: Roboto;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.ag-grid-wrapper {
+  width: 95%;
+
+  height: 500px;
+}
+.ag-header-cell-label {
+  justify-content: center;
 }

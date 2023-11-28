@@ -1,0 +1,20 @@
+<div class="action" fxFlex fxLayout="row" fxLayoutAlign="start center">
+    <!-- Default -->
+    <ng-container *ngIf="!params.actionsHaveConditions">
+        <span *ngFor="let action of params.actions">
+            <button [disabled]="disableActions || isDisable(action)" mat-icon-button color="primary" title="{{ action.tooltip }}" *ngIf="(!action.valueIn || action.valueIn.includes(params.value)) && (!action.valueNotIn || !action.valueNotIn.includes(params.value))"
+                (click)="executeAction(action, $event)">
+                <mat-icon class="icon-options">{{ action.icon }}</mat-icon>
+            </button>
+        </span>
+    </ng-container>
+    <!-- Actions render contidionally -->
+    <ng-container *ngIf="params.actionsHaveConditions">
+        <span *ngFor="let action of items">
+            <button  mat-icon-button color="primary" title="{{ action.tooltip }}" *ngIf="action.visible && (!action.valueIn || action.valueIn.includes(params.value)) && (!action.valueNotIn || !action.valueNotIn.includes(params.value))"
+                (click)="executeAction(action, $event)">
+                <mat-icon class="icon-options">{{ action.icon }}</mat-icon>
+            </button>
+        </span>
+    </ng-container>
+</div>

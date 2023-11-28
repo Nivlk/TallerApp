@@ -1,0 +1,62 @@
+<!-- tu-componente.component.html -->
+<div class="container text-center">
+    <button  class="btn d-block btn-user w-75 mt-3" style="text-align: left;" (click)="close()">
+       <h2 class="title">   <i style="color: rebeccapurple" class="fas fa-chevron-left"></i>   {{ data.params ? "Editar Cliente" : "Registrar Cliente" }}
+       </h2>
+      </button>    
+      <form [formGroup]="clienteForm" (ngSubmit)="guardarCliente()">
+
+  <div class="row mt-3">
+    <div class="col">
+        <div class="d-grid gap-3">
+            <div class="p-2 ">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Identificador (CI)</mat-label>
+                    <input matInput placeholder="Ingrese el valor" formControlName="identificador" />
+                  </mat-form-field>
+            </div>
+            <div class="p-2 w-100">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Nombre(s)</mat-label>
+                    <input matInput placeholder="Ingrese el valor" formControlName="nombre" />
+                  </mat-form-field>
+            </div>
+            <div class="p-2 w-100">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput placeholder="Ingrese el valor" formControlName="apellidos" />
+                  </mat-form-field>
+                
+            </div>
+          </div>
+    </div>
+    <div class="col">
+        <div class="d-grid gap-3">
+            <div class="p-2 ">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Número de teléfono</mat-label>
+                    <input matInput placeholder="Ingrese el valor" formControlName="telefono" />
+                  </mat-form-field>
+            </div>
+            <div class="p-2 ">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Dirección de referencia (Opcional)</mat-label>
+                    <input matInput placeholder="Ingrese el valor" formControlName="direccion" />
+                  </mat-form-field>
+            </div>
+            <div class="p-2 ">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Correo</mat-label>
+                    <input matInput placeholder="Ingrese el valor" formControlName="correo" />
+                  </mat-form-field>
+            </div>
+          </div>
+    </div>
+  </div>
+  
+<div class="wapper">
+    <button mat-button class="mt-3 custom-button" type="submit">Guardar</button>
+    <button mat-raised-button class="mt-3 primary-2">{{ data.params ? "Editar vehículo" : "Registrar vehículo" }}</button>
+</div>
+</form>
+</div>

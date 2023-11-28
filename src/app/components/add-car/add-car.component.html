@@ -1,0 +1,82 @@
+<!-- tu-componente.component.html -->
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="container text-center">
+    <button  class="btn d-block btn-user w-75 mt-3" style="text-align: left;" (click)="close()">
+       <h2 class="title">   <i style="color: rebeccapurple" class="fas fa-chevron-left"></i>   {{ data.params ? "Editar Auto" : "Registrar Auto" }}
+       </h2>
+      </button>    
+      <form [formGroup]="carForm" (ngSubmit)="guardar()">
+
+  <div class="row mt-3">
+    <div class="col">
+        <div class="d-grid gap-3">
+            <div class="p-2 ">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Matrícula</mat-label>
+                    <input matInput placeholder="Ingrese el valor" formControlName="registration" />
+                  </mat-form-field>
+            </div>
+            <div class="p-2 w-100">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Modelo</mat-label>
+                    <input matInput placeholder="Ingrese el valor" formControlName="model" />
+                  </mat-form-field>
+            </div>
+            <div class="p-2 w-100">
+                <mat-form-field class="me-3 w-100">
+                  <mat-label>Año</mat-label>
+                  <input matInput placeholder="Ingrese el valor" formControlName="year" />
+                  <mat-error *ngIf="carForm.get('year')?.hasError('required')">El año es obligatorio</mat-error>
+                  <mat-error *ngIf="carForm.get('year')?.hasError('pattern')">Ingrese solo números para el año</mat-error>
+                </mat-form-field>
+              </div>
+              
+            <div class="p-2 w-100">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Color</mat-label>
+                    <input matInput placeholder="Ingrese el valor" formControlName="color" />
+                  </mat-form-field>
+                
+            </div>
+          </div>
+    </div>
+    <div class="col">
+        <div class="d-grid gap-3">
+            <div class="p-2 d-flex justify-content-start">
+           
+                <div class="image-container">
+                    <img src="../../../assets/img/jimy.png" alt="Imagen" class="image">
+                    <div class="icon-container">
+                        
+                        <mat-icon (click)="onClickedMenuAction($event)">more_horiz</mat-icon>
+                    </div>
+                </div>
+                <!-- Cuadrado que dice "Añadir imágenes" -->
+                <div class="add-images-container">
+                    <input id="file-input" type="file" accept="image/*,video/*" multiple style="display: none;" (change)="handleFileInput($event)">
+                    <button type="button" class="btn bg-transparent border-0 text-primary" (click)="openFileInput()">
+                        <i class="material-icons">image</i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-2">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Estado (Opcional)</mat-label>
+                    <textarea matInput placeholder="Ingrese el valor" formControlName="status"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    
+    
+  </div>
+  
+<div class="wapper">
+    <button mat-button class="mt-3 custom-button" type="submit" [disabled]="!guardarHabilitado">Registrar</button>
+</div>
+</form>
+<div class="wapper">
+    <button (click)="clearFileInput()" mat-raised-button class="mt-3 primary-2">{{ data.params ? "Editar reparación" : "Registrar reparación" }}</button>
+
+</div>
+</div>

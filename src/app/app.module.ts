@@ -13,8 +13,20 @@ import { AgGridModule } from 'ag-grid-angular';
 
 import { ClientsComponent } from './components/clients/clients/clients.component';
 import { SearchComponent } from './components/search/search.component';
-import { AddClientsComponent } from './components/add-clients/add-clients.component';
 
+import { ActionsCellsComponent } from './components/actions-cells/actions-cells.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { AddClientComponentComponent } from './components/add-client-component/add-client-component.component';
+import { FullscreenOverlayContainer, OverlayContainer } from '@angular/cdk/overlay';
+import { MAT_MENU_DEFAULT_OPTIONS } from '@angular/material/menu';
+import { AddCarComponent } from './components/add-car/add-car.component';
+import { environment } from 'src/environments/environments';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { ModalImagesCarComponent } from './components/modal-images-car/modal-images-car.component';
+import { EditCarrouselComponent } from './components/edit-carrousel/edit-carrousel.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +35,12 @@ import { AddClientsComponent } from './components/add-clients/add-clients.compon
     LoginComponent,
     ClientsComponent,
     SearchComponent,
-    AddClientsComponent,
+    ActionsCellsComponent,
+    ModalComponent,
+    AddClientComponentComponent,
+    AddCarComponent,
+    ModalImagesCarComponent,
+    EditCarrouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,9 +50,15 @@ import { AddClientsComponent } from './components/add-clients/add-clients.compon
     ReactiveFormsModule,
     HttpClientModule,
     AgGridModule,
-
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
+    NgxSpinnerModule
   ],
-  providers: [],
+  providers: [{
+    provide: MAT_MENU_DEFAULT_OPTIONS,
+    useValue: { overlayPanelClass: 'menu-overlay-pane' }
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

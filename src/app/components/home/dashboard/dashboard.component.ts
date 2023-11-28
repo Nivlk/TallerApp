@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 // import { ClientsComponent } from './clients.component';
 import { ClientsComponent } from '../../clients/clients/clients.component';
 import { SearchComponent } from '../../search/search.component';
-import { AddClientsComponent } from '../../add-clients/add-clients.component';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -29,9 +29,7 @@ export class DashboardComponent {
 
     if (identificador == 'Clients') {
       this.ClientsComponent = true;
-    } else if (identificador == 'Adds') {
-      this.AddClientsComponent = true;
-    } else {
+    }  else {
       this.SearchComponent = true;
     }
   }

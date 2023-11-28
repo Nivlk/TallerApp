@@ -1,0 +1,23 @@
+.wapper{
+    
+    display: flex;
+  flex-direction: column;
+overflow-y: hidden;
+
+}
+.primary-2{
+   background-color: #EA6928!important; 
+   color: white;
+}
+.custom-button{
+    border: 2px solid #EA6928!important;
+    color: #EA6928;
+}
+.title{
+    color:  #112B41;
+font-family: Roboto;
+font-size: 36px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}

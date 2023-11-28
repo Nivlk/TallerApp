@@ -1,4 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
-
+@import 'ag-grid-community/styles/ag-grid.css'; 
+@import 'ag-grid-community/styles/ag-theme-alpine.css'; 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.ag-auto {
+    min-height: 275px;
+    max-height: 700px;
+    flex-grow: 1;
+    overflow: auto;
+}
+.cdk-overlay-pane {
+    position: absolute;
+    pointer-events: auto;
+    box-sizing: border-box;
+    z-index: 1000;
+    display: flex;
+    max-width: 100%!important;
+    max-height: 100%;
+}
+.ag-header-cell.header-center {
+    .ag-header-cell-label {
+        justify-content: center;
+    }
+}
+.menu-overlay-pane {
+    /* Estilos específicos para la clase cdk-overlay-pane */
+    /* Por ejemplo: */
+    max-width: 100vw;
+    position: static;
+}
+.full-screen-dialog {
+    width: 100vw;
+    height: 100vh;
+  }
+.ag-grid-wrapper {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+
+    ag-grid-angular {
+        overflow: auto;
+
+        &.small {
+            max-height: 275px;
+        }
+    }
+}

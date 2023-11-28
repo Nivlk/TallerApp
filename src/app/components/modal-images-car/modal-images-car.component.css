@@ -1,0 +1,11 @@
+.wapper{
+    background-color: #EA6928;
+    color: white;
+    display: flex;
+  flex-direction: column;
+overflow-y: hidden;
+
+}
+.wt{
+    color: white!important;
+}

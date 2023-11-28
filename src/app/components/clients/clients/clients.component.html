@@ -1,13 +1,43 @@
-<p>clients works!</p>
-<!-- AG Grid Angular Component -->
-<ag-grid-angular
+<!-- tu-componente.component.html -->
+
+<div class="ag-grid-wrapper">
+  <h2 class="title">Gestión de clientes</h2>
+  <div class="page-wrapper">
+    <div class="d-flex justify-content-between flex-wrap"> <!-- Añadido flex-wrap para permitir el cambio de línea en dispositivos pequeños -->
+      <div class="filter-container">
+        <input
+          type="text"
+          id="filter-text-box"
+          placeholder="Buscar cliente"
+          (input)="onFilterTextBoxChanged()"
+        />
+        <span class="ms-3 search-icon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+  
+      <div class="buttons-wrapper mt-3 mt-md-0"> <!-- mt-3 para agregar espacio superior en dispositivos pequeños -->
+        <button
+          mat-raised-button
+          
+          class="searchButton"
+          matTooltip="{{ 'Añadir nuevos clientes' }}"
+          (click)="openClientModal()"
+        >
+          <mat-icon>add</mat-icon> Añadir clientes
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <ag-grid-angular
     style="width: 100%; height: 100%"
-    class="ag-theme-alpine"
+    class="ag-theme-alpine mt-3"
+    [rowData]="rowData"
     [columnDefs]="columnDefs"
-    [defaultColDef]="defaultColDef"
-    [rowData]="rowData$ | async"
-    [rowSelection]="'multiple'"
-    [animateRows]="true"
     (gridReady)="onGridReady($event)"
-    
+    [defaultColDef]="gridOptions.defaultColDef"
+    [pagination]="true"
+    [paginationPageSize]="10"
   ></ag-grid-angular>
+</div>

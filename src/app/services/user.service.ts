@@ -20,7 +20,10 @@ export class UserService {
   }
 
   public saveData(user: any): Observable<any> {
-    return this.http.post<any>(this.apiServerUrl + '/swiggy/guardar', user);
+    return this.http.post<any>(this.apiServerUrl + '/api/v1/auth/registerCustomer', user);
+  }
+  public updateData(user: any): Observable<any> {
+    return this.http.put<any>(this.apiServerUrl + '/api/v1/users/updateCustomer', user);
   }
 
   // public getAllUsers(): Observable<any[]> {
@@ -34,7 +37,7 @@ export class UserService {
   // }
 
   public getAllUsers(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiServerUrl}/api/v1/users/getUsers`);
+    return this.http.get<any[]>(`${this.apiServerUrl}/api/v1/users/getCustomers`);
   }
 
 
