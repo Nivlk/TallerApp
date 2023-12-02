@@ -45,17 +45,17 @@
             <div class="p-2 d-flex justify-content-start">
            
                 <div class="image-container">
-                    <img src="../../../assets/img/jimy.png" alt="Imagen" class="image">
+                    <img [src]="defaultImagePath" alt="Imagen" class="image">
                     <div class="icon-container">
-                        
-                        <mat-icon (click)="onClickedMenuAction($event)">more_horiz</mat-icon>
+                      <mat-icon (click)="onClickedMenuAction($event)">more_horiz</mat-icon>
                     </div>
-                </div>
-                <!-- Cuadrado que dice "Añadir imágenes" -->
+                  </div>
+                  
                 <div class="add-images-container">
                     <input id="file-input" type="file" accept="image/*,video/*" multiple style="display: none;" (change)="handleFileInput($event)">
                     <button type="button" class="btn bg-transparent border-0 text-primary" (click)="openFileInput()">
-                        <i class="material-icons">image</i>
+                        <i class="material-icons">add</i>
+                        <span>Añadir imágen</span>
                     </button>
                 </div>
             </div>

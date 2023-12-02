@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -19,6 +19,8 @@ export class AddCarComponent {
   imageUrls: any[] = [];
   guardarHabilitado: any;
   percentage = 0;
+  defaultImagePath = '../../../assets/img/noimage.jpg';
+
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<AddCarComponent>,
@@ -26,7 +28,9 @@ export class AddCarComponent {
     private storage: AngularFireStorage,
     private carService: CarService,
     private spinner: NgxSpinnerService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private cdRef: ChangeDetectorRef
+
   ) { }
   ngOnInit() {
     console.log(this.data)
@@ -79,9 +83,11 @@ openFileInput(): void {
 
 
       this.selectedImages.push(file);
+  this.defaultImagePath=this.getObjectUrl(this.selectedImages[0]);
     }
     event.target.value = null;
   }
+ 
   clearFileInput() {
   //  this.selectedImages = [];
     this.guardarHabilitado = false;
@@ -145,7 +151,7 @@ openFileInput(): void {
     });
   }
   onClickedMenuAction(event: any): void {
- 
+ if(this.selectedImages.length){
     event.preventDefault();
     event.stopPropagation();
     //console.log(rowData)
@@ -162,15 +168,25 @@ openFileInput(): void {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
-      //  this.getParetto();
-     //   console.log('Opción seleccionada:', result);
+       this.selectedImages=result;
+      }else{
+        this.defaultImagePath = '../../../assets/img/noimage.jpg';
       }
     });
   
-
+  }
   
   }
   close(): void {
-
+this.dialogRef.close();
+  }
+ 
+  
+ 
+  getObjectUrl(file: File): string {
+    if (file) {
+      return URL.createObjectURL(file);
+    }
+    return '';
   }
 }

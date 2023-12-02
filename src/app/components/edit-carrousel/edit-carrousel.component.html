@@ -6,7 +6,9 @@
                 
                 <div class="card">
                     <div class="image-container">
-                        <button class="right-button">X</button>
+                        <div class="right-button" (click)="deleteImage(i)">
+                            <mat-icon>close</mat-icon>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="container">

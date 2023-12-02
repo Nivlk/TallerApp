@@ -16,7 +16,7 @@ export class ModalImagesCarComponent {
 
 }
 ngOnInit() {
-  console.log(this.data)
+console.log(this.data)
    }
   openEditCarrouselModal(): void {
     const dialogRef = this.dialog.open(EditCarrouselComponent, {
@@ -35,6 +35,11 @@ ngOnInit() {
     });
 
     dialogRef.afterClosed().subscribe((data) => {
+      console.log(data)
+      if(data){
+        this.dialogRef.close(data);
+      }
+      this.dialogRef.close(data);
       /*
       console.log('image',data);
 

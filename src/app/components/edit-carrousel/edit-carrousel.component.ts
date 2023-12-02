@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, HostListener, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -23,4 +23,20 @@ export class EditCarrouselComponent {
     // Crea una URL segura para el objeto File
     return this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(file));
   }
+  // En tu archivo de componente.ts
+deleteImage(index: number) {
+  this.data.images.images.splice(index, 1);
+  if(!this.data.images.images.length){
+  this.dialogRef.close();
+  }
+
+
+}
+
+@HostListener('document:keydown.escape', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+
+
+  this.dialogRef.close(  this.data.images.images);
+}
+
 }

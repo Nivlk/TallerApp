@@ -56,7 +56,7 @@ export class AddClientComponentComponent {
       const correo = this.clienteForm.value.correo;
 
 
-      if (this.data) {
+      if (this.data.params) {
         // Editing existing client
         const data = {
           ci: identificador,
