@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddClientComponentComponent } from '../add-client-component/add-client-component.component';
 import { AddCarComponent } from '../add-car/add-car.component';
+import { CarListComponent } from '../car-list/car-list.component';
 
 @Component({
   selector: 'app-modal',
@@ -29,6 +30,19 @@ export class ModalComponent {
   }
   viewCar():void{
     const dialogRef = this.dialog.open(AddCarComponent, {
+      data: this.data.params.id,
+      panelClass: 'full-screen-dialog', // Aplica la clase de estilo personalizado
+    });
+  
+    dialogRef.afterClosed().subscribe((result: any) => {
+    
+      if (result) {
+        this.dialogRef.close(1);
+      }
+    });
+  }
+  viewList():void{
+    const dialogRef = this.dialog.open(CarListComponent, {
       data: this.data.params.id,
       panelClass: 'full-screen-dialog', // Aplica la clase de estilo personalizado
     });

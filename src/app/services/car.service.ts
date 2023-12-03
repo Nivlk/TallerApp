@@ -64,8 +64,8 @@ export class CarService {
   }
 
 
-  public getAllUsers(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiServerUrl}/api/v1/users/getCustomers`);
+  public getAllCars(userId:any): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiServerUrl}/car/car/${userId}`);
   }
 
 

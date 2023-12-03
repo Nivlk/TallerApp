@@ -1,0 +1,34 @@
+<!-- tu-componente.component.html -->
+<div class="container text-center">
+<div class="ag-grid-wrapper">
+    <h2 class="title mt-3">Mis vehículos</h2>
+    <div class="page-wrapper">
+      <div class="d-flex justify-content-between flex-wrap"> <!-- Añadido flex-wrap para permitir el cambio de línea en dispositivos pequeños -->
+        <div class="filter-container">
+          <input
+            type="text"
+            id="filter-text-box"
+            placeholder="Buscar vehículo"
+            (input)="onFilterTextBoxChanged()"
+          />
+          <span class="ms-3 search-icon">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+    
+
+      </div>
+    </div>
+    
+    <ag-grid-angular
+      style="width: 100%; height: 100%"
+      class="ag-theme-alpine mt-3"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      (gridReady)="onGridReady($event)"
+      [defaultColDef]="gridOptions.defaultColDef"
+      [pagination]="true"
+      [paginationPageSize]="10"
+    ></ag-grid-angular>
+  </div>
+</div>

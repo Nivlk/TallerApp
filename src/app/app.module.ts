@@ -27,6 +27,9 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ModalImagesCarComponent } from './components/modal-images-car/modal-images-car.component';
 import { EditCarrouselComponent } from './components/edit-carrousel/edit-carrousel.component';
+import { CarListComponent } from './components/car-list/car-list.component';
+import { CarActionsComponentComponent } from './components/car-actions-component/car-actions-component.component';
+import { CarrouselComponent } from './components/carrousel/carrousel.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import { EditCarrouselComponent } from './components/edit-carrousel/edit-carrous
     AddCarComponent,
     ModalImagesCarComponent,
     EditCarrouselComponent,
+    CarListComponent,
+    CarActionsComponentComponent,
+    CarrouselComponent,
   ],
   imports: [
     BrowserModule,

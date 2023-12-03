@@ -1,0 +1,47 @@
+.container{
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+    height: 100vh; /* would cause overflow with body margin */
+    background-color: transparent;
+    backdrop-filter: blur(2px);
+
+}
+
+.outer-container {
+    flex: 1; /* Stretch to fill available space */
+    display: grid; place-items: center; /* Easy centering demo */
+}
+
+.inner-container {
+    backdrop-filter: blur(2px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+    justify-content: center;
+    top: 50%;
+}
+.custom-slider{
+    height: 360px!important;
+    .carousel-control-prev,
+    .carousel-control-next{
+      text-shadow: 2px 2px 4px #000000;
+      font-size: 30px;
+    }
+    .carousel-inner{
+      height: 100%;
+      .carousel-item{
+        height: 100%;
+        .carousel-img-container{
+          height: 100%;
+        }
+        img{
+          max-width:100% !important;
+          max-height:100% !important;
+          width: auto !important;
+        }
+      }
+    }
+  }
