@@ -5,7 +5,11 @@ import { LoginComponent } from './components/login/login/login.component';
 import { ClientsComponent } from './components/clients/clients/clients.component';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
 
-const routes: Routes = [  {path:'',redirectTo:'home',pathMatch:'full'},
+const routes: Routes = 
+
+[  
+  
+  //{path:'',redirectTo:'home',pathMatch:'full'},
 
 {path:'home', component:DashboardComponent},
 {path: 'login', component: LoginComponent },

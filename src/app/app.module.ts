@@ -30,6 +30,9 @@ import { EditCarrouselComponent } from './components/edit-carrousel/edit-carrous
 import { CarListComponent } from './components/car-list/car-list.component';
 import { CarActionsComponentComponent } from './components/car-actions-component/car-actions-component.component';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
+import { RepaListComponent } from './components/repa-list/repa-list.component';
+import { RepaMenuComponent } from './components/repa-menu/repa-menu.component';
+import { RepaFormComponent } from './components/repa-form/repa-form.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { CarrouselComponent } from './components/carrousel/carrousel.component';
     CarListComponent,
     CarActionsComponentComponent,
     CarrouselComponent,
+    RepaListComponent,
+    RepaMenuComponent,
+    RepaFormComponent,
   ],
   imports: [
     BrowserModule,
