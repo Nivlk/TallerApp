@@ -1,18 +1,17 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { GridOptions, ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
-import { CarService } from 'src/app/services/car.service';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { Component, Inject } from '@angular/core';
 import { ActionsCellsComponent } from '../actions-cells/actions-cells.component';
-import { CarActionsComponentComponent } from '../car-actions-component/car-actions-component.component';
+import { ColDef, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { CarService } from 'src/app/services/car.service';
+import { RepaMenuComponent } from '../repa-menu/repa-menu.component';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  selector: 'app-repa-list',
+  templateUrl: './repa-list.component.html',
+  styleUrls: ['./repa-list.component.css']
 })
-export class SearchComponent {
-public pageSize: any;
+export class RepaListComponent {
+  public pageSize: any;
   themeSelected: any;
   gridOptions: GridOptions = {};
   columnDefs!: ColDef[];
@@ -22,8 +21,9 @@ public pageSize: any;
 
   constructor(private carService: CarService, 
     private dialog: MatDialog,
-    private tokenService:TokenStorageService) {}
+    @Inject(MAT_DIALOG_DATA) public data: any,) {}
     ngOnInit(): void {
+      console.log(this.data)
       this.getParetto();
   
       
@@ -34,7 +34,7 @@ public pageSize: any;
     }
   
     getParetto(): void {
-      this.carService.getAllCars(this.tokenService.extractTokenInfo()).subscribe(
+      this.carService.getAllReps(this.data.params.id).subscribe(
         (res: any) => {
           this.paretto = res.data;
           this.rowData = this.paretto;
@@ -48,11 +48,14 @@ public pageSize: any;
     getDefs(){
       this.columnDefs = [
         { headerName: 'ID', field: 'id' },
-        { headerName: 'Placa', field: 'registration' },
-        { headerName: 'Modelo', field: 'model' },
-        { headerName: 'Año', field: 'year' },
+        { headerName: 'Categoría', field: 'category' },
+        { headerName: 'Subcategoría', field: 'subs' },
+        { headerName: 'Fecha de Entrada', field: 'fechain' },
+        { headerName: 'Fecha de Salida', field: 'fechasal' },
         { headerName: 'Estado', field: 'status' },
-        { headerName: 'Color', field: 'color' },
+        { headerName: 'Prioridad', field: 'priority' },
+        { headerName: 'Comentarios', field: 'comments' },
+        { headerName: 'ID del Auto', field: 'id_auto' },
         {
           headerName: '',
           cellRenderer: ActionsCellsComponent,
@@ -86,7 +89,7 @@ public pageSize: any;
      
         // Puedes acceder a params.value para obtener el valor de la acción
     if (action.value === 1) {
-      const dialogRef = this.dialog.open(CarActionsComponentComponent, {
+     const dialogRef = this.dialog.open(RepaMenuComponent, {
         width: '200px',
       
         position: { top: `${event.clientY}px`, left: `${event.clientX}px` },

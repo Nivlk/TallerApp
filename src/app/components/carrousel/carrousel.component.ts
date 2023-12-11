@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-carrousel',
@@ -6,11 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./carrousel.component.css']
 })
 export class CarrouselComponent {
+  constructor(public dialogRef: MatDialogRef<CarrouselComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,private dialog: MatDialog) { }
+    
   activeSlideIndex = 0;
 
-  slides=[
-    {'url':"../../../assets/img/noimage.jpg"},
-    {'url':"../../../assets/img/jimy.png"}
-  ]
-  
+  slides:any;
+  ngOnInit() {
+    console.log(this.data)
+    this.slides=this.data.params.media_data
+     }
+     close(){
+      this.dialogRef.close();
+     }
 }

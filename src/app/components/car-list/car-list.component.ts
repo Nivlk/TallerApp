@@ -21,7 +21,7 @@ export class CarListComponent {
 
   constructor(private carService: CarService, 
     private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: any,) {}
+    @Inject(MAT_DIALOG_DATA) public data: any = null) {}
     ngOnInit(): void {
       this.getParetto();
   

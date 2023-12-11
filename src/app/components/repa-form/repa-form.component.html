@@ -1,0 +1,100 @@
+<!-- tu-componente.component.html -->
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="container text-center">
+    <button  class="btn d-block btn-user w-75 mt-3" style="text-align: left;" (click)="close()">
+       <h2 class="title">   <i style="color: rebeccapurple" class="fas fa-chevron-left"></i>   {{ "Registrar reparación" }}
+       </h2>
+      </button>    
+      <form [formGroup]="carForm" (ngSubmit)="guardar()">
+
+  <div class="row mt-3">
+    <div class="col">
+        <div class="d-grid gap-3">
+            <div class="p-2 ">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Categoría</mat-label>
+                    <input matInput placeholder="Ingrese el valor" formControlName="category" />
+                  </mat-form-field>
+            </div>
+            <div class="p-2 w-100">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Subcategoría</mat-label>
+                    <input matInput placeholder="Ingrese el valor" formControlName="subs" />
+                  </mat-form-field>
+            </div>
+            <div class="p-2 w-100">
+                <mat-form-field class="me-3 w-100">
+                  <mat-label>Fecha de ingreso</mat-label>
+                  <input matInput [matDatepicker]="ingresoPicker" placeholder="Ingrese el valor" formControlName="fechain" />
+                  <mat-datepicker-toggle matSuffix [for]="ingresoPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #ingresoPicker></mat-datepicker>
+           
+                </mat-form-field>
+              </div>
+              
+              <div class="p-2 w-100">
+                <mat-form-field class="me-3 w-100">
+                  <mat-label>Fecha de salida</mat-label>
+                  <input matInput [matDatepicker]="salidaPicker" placeholder="Ingrese el valor" formControlName="fechasal" />
+                  <mat-datepicker-toggle matSuffix [for]="salidaPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #salidaPicker></mat-datepicker>
+             
+                </mat-form-field>
+              </div>
+              
+              
+            <div class="p-2 w-100">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Prioridad</mat-label>
+                    <input matInput placeholder="Ingrese el valor" formControlName="priorioty" />
+                  </mat-form-field>
+                
+            </div>
+          </div>
+    </div>
+    <div class="col">
+        <div class="d-grid gap-3">
+            <div class="p-2 d-flex justify-content-start">
+           
+                <div class="image-container">
+                    <img [src]="defaultImagePath" alt="Imagen" class="image">
+                    <div class="icon-container">
+                      <mat-icon (click)="onClickedMenuAction($event)">more_horiz</mat-icon>
+                    </div>
+                  </div>
+                  
+                <div class="add-images-container">
+                    <input id="file-input" type="file" accept="image/*,video/*" multiple style="display: none;" (change)="handleFileInput($event)">
+                    <button type="button" class="btn bg-transparent border-0 text-primary" (click)="openFileInput()">
+                        <i class="material-icons">add</i>
+                        <span>Añadir imágen</span>
+                    </button>
+                </div>
+            </div>
+            <div class="p-2">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Estado (Opcional)</mat-label>
+                    <textarea matInput placeholder="Ingrese el valor" formControlName="status"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="p-2">
+                <mat-form-field class="me-3 w-100">
+                    <mat-label>Comentarios</mat-label>
+                    <textarea matInput placeholder="Ingrese el valor" formControlName="comments"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    
+    
+  </div>
+  
+<div class="wapper">
+    <button mat-button class="mt-3 custom-button" type="submit" [disabled]="!guardarHabilitado">Registrar</button>
+</div>
+</form>
+<div class="wapper">
+    <button (click)="clearFileInput()" mat-raised-button class="mt-3 primary-2">{{ data.params ? "Editar reparación" : "Registrar reparación" }}</button>
+
+</div>
+</div>

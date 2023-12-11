@@ -54,4 +54,7 @@ export class ModalComponent {
       }
     });
   }
+  viewRep(){
+    console.log(this.data.paramss)
+  }
 }

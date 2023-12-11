@@ -7,20 +7,15 @@
         </div>
       </mat-toolbar>
       <mat-nav-list>
-        <a id="Clients" mat-list-item  (click)="ChangedView('Clients')">
+        <a id="Clients" mat-list-item  (click)="ChangedView('Clients')" *ngIf=" isAdmin=='admin'">
           <!-- <mat-icon matListItemIcon>label</mat-icon> -->
           <mat-icon matListItemIcon>account_circle</mat-icon>
           <span>Clientes</span>
         </a>
-  
-        <a id="Adds" mat-list-item  (click)="ChangedView('Adds')">
-          <mat-icon matListItemIcon>add</mat-icon>
-          <div>Add</div>
-        </a>
-  
-        <a id="Searches" mat-list-item  (click)="ChangedView('Searches')">
+
+        <a id="Searches" mat-list-item  (click)="ChangedView('Searches')" *ngIf=" isAdmin=='user'">
           <mat-icon matListItemIcon>search</mat-icon>
-          <span class="txt-c">Search</span>
+          <span class="txt-c">Mis vehículos</span>
         </a>
       </mat-nav-list>
     </mat-sidenav>
@@ -31,8 +26,8 @@
       </mat-toolbar>
       <div class="main-content">
       <!-- <app-clients></app-clients> -->
-      <app-clients *ngIf="ClientsComponent"></app-clients>
-      <app-search *ngIf="SearchComponent"></app-search>
+      <app-clients *ngIf="ClientsComponent && isAdmin=='admin'"></app-clients>
+      <app-search *ngIf="SearchComponent && isAdmin=='user'"></app-search>
 
       </div>
     </mat-sidenav-content>
